@@ -1,0 +1,287 @@
+{
+  "info": {
+    "_postman_id": "b7e1f2a3-4c5d-6e7f-8a9b-0c1d2e3f4a5b",
+    "name": "Payerset Data Lake API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Payerset Data Lake API for U.S. healthcare price transparency data parsed from payer Transparency in Coverage (TiC) machine-readable files and hospital MRFs.\n\nContact Support:\n Name: Payerset Support\n Email: support@payerset.com",
+      "type": "text/plain"
+    }
+  },
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.payerset.com",
+      "key": "baseUrl"
+    }
+  ],
+  "item": [
+    {
+      "name": "Rates",
+      "description": {
+        "content": "Payer-provider negotiated rate lookups from Transparency in Coverage MRFs.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "name": "Query negotiated rate",
+          "request": {
+            "name": "Query negotiated rate",
+            "description": {
+              "content": "Returns the negotiated rate for a given billing code, payer, and provider NPI.",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/v1/rates/rate_query?billing_code=27447&payer=Aetna&npi=1234567890",
+              "host": ["{{baseUrl}}"],
+              "path": ["v1", "rates", "rate_query"],
+              "query": [
+                { "key": "billing_code", "value": "27447" },
+                { "key": "payer", "value": "Aetna" },
+                { "key": "npi", "value": "1234567890" }
+              ],
+              "variable": []
+            },
+            "header": [
+              { "key": "Accept", "value": "application/json" }
+            ],
+            "method": "GET"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Payers",
+      "description": {
+        "content": "Payer reference metadata and payer listings.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "name": "Get payer detail",
+          "request": {
+            "name": "Get payer detail",
+            "url": {
+              "raw": "{{baseUrl}}/v1/metadata/payers/payer_detail",
+              "host": ["{{baseUrl}}"],
+              "path": ["v1", "metadata", "payers", "payer_detail"],
+              "query": [],
+              "variable": []
+            },
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "method": "GET"
+          }
+        },
+        {
+          "name": "Get payer list",
+          "request": {
+            "name": "Get payer list",
+            "url": {
+              "raw": "{{baseUrl}}/v1/metadata/payers/payer_list",
+              "host": ["{{baseUrl}}"],
+              "path": ["v1", "metadata", "payers", "payer_list"],
+              "query": [],
+              "variable": []
+            },
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "method": "GET"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Providers",
+      "description": {
+        "content": "Provider (NPI), organization, and tax identification (TIN) reference metadata and mappings.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "name": "Get NPI detail",
+          "request": {
+            "name": "Get NPI detail",
+            "url": {
+              "raw": "{{baseUrl}}/v1/metadata/providers/npi_detail?npi=1234567890",
+              "host": ["{{baseUrl}}"],
+              "path": ["v1", "metadata", "providers", "npi_detail"],
+              "query": [{ "key": "npi", "value": "1234567890" }],
+              "variable": []
+            },
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "method": "GET"
+          }
+        },
+        {
+          "name": "Get NPI to TIN",
+          "request": {
+            "name": "Get NPI to TIN",
+            "url": {
+              "raw": "{{baseUrl}}/v1/metadata/providers/npi_to_tin",
+              "host": ["{{baseUrl}}"],
+              "path": ["v1", "metadata", "providers", "npi_to_tin"],
+              "query": [],
+              "variable": []
+            },
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "method": "GET"
+          }
+        },
+        {
+          "name": "Get TIN to NPI",
+          "request": {
+            "name": "Get TIN to NPI",
+            "url": {
+              "raw": "{{baseUrl}}/v1/metadata/providers/tin_to_npi",
+              "host": ["{{baseUrl}}"],
+              "path": ["v1", "metadata", "providers", "tin_to_npi"],
+              "query": [],
+              "variable": []
+            },
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "method": "GET"
+          }
+        },
+        {
+          "name": "Get NPI to parent",
+          "request": {
+            "name": "Get NPI to parent",
+            "url": {
+              "raw": "{{baseUrl}}/v1/metadata/providers/npi_to_parent",
+              "host": ["{{baseUrl}}"],
+              "path": ["v1", "metadata", "providers", "npi_to_parent"],
+              "query": [],
+              "variable": []
+            },
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "method": "GET"
+          }
+        },
+        {
+          "name": "Get NPI parent",
+          "request": {
+            "name": "Get NPI parent",
+            "url": {
+              "raw": "{{baseUrl}}/v1/metadata/providers/npi_parent",
+              "host": ["{{baseUrl}}"],
+              "path": ["v1", "metadata", "providers", "npi_parent"],
+              "query": [],
+              "variable": []
+            },
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "method": "GET"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Billing Codes",
+      "description": {
+        "content": "Billing code classification, categorization, and code type reference data.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "name": "Get billing code detail",
+          "request": {
+            "name": "Get billing code detail",
+            "url": {
+              "raw": "{{baseUrl}}/v1/metadata/billing_codes/code_detail?billing_code=99213",
+              "host": ["{{baseUrl}}"],
+              "path": ["v1", "metadata", "billing_codes", "code_detail"],
+              "query": [{ "key": "billing_code", "value": "99213" }],
+              "variable": []
+            },
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "method": "GET"
+          }
+        },
+        {
+          "name": "Get billing code types",
+          "request": {
+            "name": "Get billing code types",
+            "url": {
+              "raw": "{{baseUrl}}/v1/metadata/billing_codes/code_types",
+              "host": ["{{baseUrl}}"],
+              "path": ["v1", "metadata", "billing_codes", "code_types"],
+              "query": [],
+              "variable": []
+            },
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "method": "GET"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Hospital MRF",
+      "description": {
+        "content": "Hospital price transparency machine-readable file discovery (hospitals, systems, payers).",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "name": "Get hospital list",
+          "request": {
+            "name": "Get hospital list",
+            "url": {
+              "raw": "{{baseUrl}}/v1/hospital_mrf/hospital_list",
+              "host": ["{{baseUrl}}"],
+              "path": ["v1", "hospital_mrf", "hospital_list"],
+              "query": [],
+              "variable": []
+            },
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "method": "GET"
+          }
+        },
+        {
+          "name": "Get system list",
+          "request": {
+            "name": "Get system list",
+            "url": {
+              "raw": "{{baseUrl}}/v1/hospital_mrf/system_list",
+              "host": ["{{baseUrl}}"],
+              "path": ["v1", "hospital_mrf", "system_list"],
+              "query": [],
+              "variable": []
+            },
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "method": "GET"
+          }
+        },
+        {
+          "name": "Get hospital payer list",
+          "request": {
+            "name": "Get hospital payer list",
+            "url": {
+              "raw": "{{baseUrl}}/v1/hospital_mrf/payer_list",
+              "host": ["{{baseUrl}}"],
+              "path": ["v1", "hospital_mrf", "payer_list"],
+              "query": [],
+              "variable": []
+            },
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "method": "GET"
+          }
+        }
+      ]
+    }
+  ]
+}

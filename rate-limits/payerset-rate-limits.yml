@@ -1,0 +1,52 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Payerset
+providerId: payerset
+created: '2026-06-21'
+modified: '2026-06-21'
+reconciled: false
+tags:
+- Healthcare
+- Price Transparency
+- Negotiated Rates
+- Machine-Readable Files
+- Payer Data
+- Rate Limiting
+- Quotas
+- Throttling
+description: >-
+  The Payerset Data Lake API is fronted by Amazon API Gateway (the published
+  API definition carries an x-amazon-apigateway-policy and us-east-1 ARN),
+  which commonly enforces request throttling and per-key usage plans. Payerset
+  does not publish specific rate-limit values (RPS, burst, daily quotas) for
+  its API. Access is keyed via the x-api-key header and governed by the
+  customer's enterprise license. Specific limits are not reconciled in this
+  artifact.
+notes: >-
+  No public rate-limit documentation is available. Confirm per-key throttling,
+  burst, and quota values with Payerset support on reconciliation.
+sources:
+- https://github.com/payerset/api-docs
+- https://docs.payerset.com
+responseCodes:
+  throttled: 429
+limits:
+- name: Requests Per Second (API Gateway)
+  scope: api_key
+  metric: requests
+  limit: see provider documentation
+  notes: Amazon API Gateway typically enforces per-key rate and burst throttling; values not published.
+- name: Daily Quota
+  scope: api_key
+  metric: requests
+  limit: see provider documentation
+  notes: Usage-plan quota may apply per API key; governed by enterprise license.
+policies:
+- name: API Key Access
+  description: All authenticated endpoints require an x-api-key header tied to an enterprise license.
+- name: Backoff Strategy
+  description: Clients should implement exponential backoff with jitter and honor Retry-After on 429 responses.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

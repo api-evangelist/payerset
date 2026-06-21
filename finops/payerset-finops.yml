@@ -1,0 +1,92 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Payerset
+providerId: payerset
+created: '2026-06-21'
+modified: '2026-06-21'
+reconciled: false
+tags:
+- Healthcare
+- Price Transparency
+- Negotiated Rates
+- Machine-Readable Files
+- Payer Data
+- FinOps
+- Cost Management
+- FOCUS
+description: >-
+  FinOps view of Payerset spend. Payerset is sold as an enterprise
+  subscription (Rate Explorer platform and Data Lake) via sales-led
+  contracts rather than usage-metered, self-service API billing. Cost is
+  driven by license scope - which datasets (TiC negotiated rates, hospital
+  MRF, provider mappings, claims enrichment), which delivery channels (REST
+  API, S3 cloud share, Snowflake Marketplace), and license structure. No
+  public per-call or per-record rates are published; figures are not
+  reconciled.
+notes: >-
+  Payerset does not publish usage-based unit economics. Negotiate contract
+  scope and reconcile cost drivers (datasets, delivery, seats) with Payerset
+  sales during reconciliation.
+sources:
+- https://payerset.com/pricing/
+- https://payerset.com/datalake/
+- https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Payerset
+serviceCategory: Analytics
+billingModel:
+  pricingCategory: Subscription
+  billingFrequency: Annual
+  billingCurrency: USD
+  chargeCategories:
+  - Purchase
+  - Usage
+focusColumns:
+  ServiceName: Payerset Data Lake
+  ServiceCategory: Analytics
+  ProviderName: Payerset
+  PublisherName: Payerset
+  InvoiceIssuerName: Payerset
+  BillingCurrency: USD
+  ChargeCategory: Purchase
+  PricingCategory: Subscription
+meters:
+- name: data_lake_license
+  description: Annual enterprise license for Data Lake dataset access; scope-based, not usage-metered.
+  unit: contract
+  aggregation: max
+  dimensions:
+  - account
+  - dataset
+  - delivery_channel
+- name: rate_explorer_seats
+  description: Rate Explorer platform subscription, potentially seat- or org-scoped.
+  unit: seats
+  aggregation: max
+  dimensions:
+  - account
+- name: api_requests
+  description: REST API requests against the Data Lake API; not separately metered for billing in published materials.
+  unit: requests
+  aggregation: sum
+  dimensions:
+  - account
+  - api
+principles:
+- name: Visibility
+  description: Track which datasets and delivery channels are licensed; map contract line items to internal use cases.
+- name: Allocation
+  description: Tag Data Lake access and Rate Explorer seats to teams / cost centers consuming price transparency data.
+- name: Optimization
+  description: License only the datasets and delivery channels needed; consolidate S3 / Snowflake / API delivery to avoid duplicate spend.
+- name: Accountability
+  description: Assign an owner for the Payerset contract; review scope annually against actual analytics usage.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

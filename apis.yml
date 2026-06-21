@@ -1,0 +1,128 @@
+aid: payerset
+url: https://raw.githubusercontent.com/api-evangelist/payerset/refs/heads/main/apis.yml
+name: Payerset
+kind: company
+description: Payerset is a healthcare price transparency data company that parses
+  every payer Transparency in Coverage (TiC) machine-readable file and compliant
+  hospital MRF each quarter, enriches negotiated rates with provider, payer, and
+  claims metadata, and delivers it as analytics-ready datasets. The Payerset Data
+  Lake API exposes payer-provider negotiated rate lookups, NPI/TIN provider
+  mapping, billing-code classification, and hospital MRF discovery via a REST API
+  authenticated with an x-api-key header.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Healthcare
+- Price Transparency
+- Negotiated Rates
+- Machine-Readable Files
+- Payer Data
+created: '2026-06-21'
+modified: '2026-06-21'
+specificationVersion: '0.19'
+apis:
+- aid: payerset:negotiated-rates
+  name: Payerset Negotiated Rates
+  tags:
+  - Negotiated Rates
+  - Rates
+  - Transparency in Coverage
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.payerset.com/data-lake/data-dictionary/payer-transparency-tic
+  baseURL: https://api.payerset.com
+  properties:
+  - url: https://docs.payerset.com/data-lake/data-dictionary/payer-transparency-tic
+    type: Documentation
+  - url: openapi/payerset-openapi.yml
+    type: OpenAPI
+  - url: collections/payerset.postman_collection.json
+    type: PostmanCollection
+  - url: collections/payerset.opencollection.json
+    type: OpenCollection
+  description: Returns the payer-provider negotiated rate for a given billing code,
+    payer, and provider NPI, derived from payer Transparency in Coverage
+    machine-readable files (GET /v1/rates/rate_query).
+- aid: payerset:rate-search
+  name: Payerset Rate Search
+  tags:
+  - Rate Search
+  - Providers
+  - Payers
+  - Billing Codes
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.payerset.com
+  baseURL: https://api.payerset.com
+  properties:
+  - url: https://docs.payerset.com
+    type: Documentation
+  - url: openapi/payerset-openapi.yml
+    type: OpenAPI
+  - url: collections/payerset.postman_collection.json
+    type: PostmanCollection
+  - url: collections/payerset.opencollection.json
+    type: OpenCollection
+  description: Reference-data search endpoints used to resolve a rate query - payer
+    listings and detail, provider NPI detail, NPI/TIN/parent mappings, and
+    billing-code detail and code types across the Data Lake.
+- aid: payerset:datasets
+  name: Payerset Datasets
+  tags:
+  - Datasets
+  - Data Lake
+  - Hospital MRF
+  - Mappings
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://payerset.com/datalake/
+  baseURL: https://api.payerset.com
+  properties:
+  - url: https://payerset.com/datalake/
+    type: Documentation
+  - url: openapi/payerset-openapi.yml
+    type: OpenAPI
+  - url: collections/payerset.postman_collection.json
+    type: PostmanCollection
+  - url: collections/payerset.opencollection.json
+    type: OpenCollection
+  description: Dataset discovery and reference endpoints powering the Payerset Data
+    Lake - hospital MRF hospital, system, and payer lists, plus provider EIN/TIN/NPI
+    mapping and billing-code classification datasets, also delivered via S3 and
+    Snowflake Marketplace.
+- aid: payerset:benchmarks
+  name: Payerset Benchmarks
+  tags:
+  - Benchmarks
+  - Reimbursement
+  - Market Analysis
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://payerset.com/rateexplorer/
+  baseURL: https://api.payerset.com
+  properties:
+  - url: https://payerset.com/rateexplorer/
+    type: Documentation
+  - url: openapi/payerset-openapi.yml
+    type: OpenAPI
+  - url: collections/payerset.postman_collection.json
+    type: PostmanCollection
+  - url: collections/payerset.opencollection.json
+    type: OpenCollection
+  description: Reimbursement benchmarking built on Payerset negotiated-rate data,
+    comparing payer-provider rates across payers, providers, and billing codes.
+    Surfaced through the Rate Explorer platform and Data Lake; no dedicated public
+    benchmark API endpoint is documented in the published API definition.
+common:
+- type: GitHubOrganization
+  url: https://github.com/payerset
+- type: LinkedIn
+  url: https://www.linkedin.com/company/payerset
+- type: Website
+  url: https://www.payerset.com
+- type: Documentation
+  url: https://docs.payerset.com
+- type: Plans
+  url: plans/payerset-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/payerset-rate-limits.yml
+- type: FinOps
+  url: finops/payerset-finops.yml
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

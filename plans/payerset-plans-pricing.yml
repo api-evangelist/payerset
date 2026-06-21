@@ -1,0 +1,82 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Payerset
+providerId: payerset
+created: '2026-06-21'
+modified: '2026-06-21'
+reconciled: false
+tags:
+- Healthcare
+- Price Transparency
+- Negotiated Rates
+- Machine-Readable Files
+- Payer Data
+- Plans
+description: >-
+  Payerset uses a sales-led, enterprise pricing model. The Rate Explorer
+  platform and the Data Lake (delivered via REST API, cloud storage / S3,
+  and the Snowflake Marketplace) are sold through demos and quotes rather
+  than self-service published rates. No public pricing tiers, per-call rates,
+  or free tier are documented; pricing is negotiated per customer based on
+  data scope, delivery method, and license structure. Values here are not
+  reconciled.
+notes: >-
+  Payerset does not publish list pricing. Request a demo or quote from
+  Payerset sales for current terms; verify plan structure on reconciliation.
+sources:
+- https://payerset.com/pricing/
+- https://payerset.com/datalake/
+- https://payerset.com/rateexplorer/
+plans:
+- id: payerset-rate-explorer
+  name: Rate Explorer
+  type: enterprise
+  description: >-
+    Self-service web platform for comparing payer-provider negotiated rates
+    across payers, providers, and billing codes. Sold via demo / quote.
+  entries:
+  - label: Rate Explorer Subscription
+    name: rate_explorer
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: Rate Comparison
+  - name: Fee Schedule
+  - name: Hospital MRF Explorer
+  - name: Market Analysis
+- id: payerset-data-lake
+  name: Data Lake
+  type: enterprise
+  description: >-
+    Enterprise data integration delivering price transparency and claims
+    data via REST API, cloud storage (S3), or Snowflake Marketplace.
+    Negotiated per customer based on data scope and delivery.
+  entries:
+  - label: Data Lake License
+    name: data_lake
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: Negotiated Rates (TiC)
+  - name: Hospital MRF
+  - name: Provider NPI / TIN Mapping
+  - name: Billing Code Classification
+  - name: REST API Access
+  - name: S3 / Cloud Share Delivery
+  - name: Snowflake Marketplace
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

@@ -1,0 +1,76 @@
+aid: payerset
+name: Payerset
+review:
+  question: Does Payerset expose a documented public WebSocket API?
+  answer: false
+  date: '2026-06-21'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was created. Payerset's published API definition
+    (an OpenAPI 3.0.1 document for the "api-datalake" service) describes only
+    synchronous request/response REST endpoints over HTTPS, fronted by Amazon
+    API Gateway. There is no event-driven, streaming, Server-Sent Events, or
+    WebSocket surface documented, so there is nothing in scope for AsyncAPI
+    modeling.
+findings:
+  summary: |
+    Payerset does not publish a documented public WebSocket API. The Payerset
+    Data Lake API is a REST (HTTPS) API served from https://api.payerset.com
+    and authenticated with an x-api-key header (apiKey security scheme), not
+    a Bearer token. All documented operations are synchronous GET endpoints
+    for negotiated rate queries, payer/provider/billing-code reference
+    metadata, provider NPI/TIN mapping, and hospital MRF discovery. No
+    realtime, bidirectional, push, or audio streaming WebSocket (ws:// or
+    wss://) endpoint is documented. Bulk and continuous delivery is offered
+    instead through cloud storage (S3) replication and the Snowflake
+    Marketplace, which are batch data-share mechanisms, not WebSocket.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://api.payerset.com
+      documented: true
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented in Payerset's API definition, docs.payerset.com, or product pages as of the review date.
+  authentication:
+    scheme: apiKey
+    headerName: x-api-key
+    note: API key passed in the x-api-key header; not OAuth or Bearer.
+  endpointsConfirmedRest:
+    - GET https://api.payerset.com/v1/rates/rate_query
+    - GET https://api.payerset.com/v1/metadata/payers/payer_detail
+    - GET https://api.payerset.com/v1/metadata/payers/payer_list
+    - GET https://api.payerset.com/v1/metadata/providers/npi_detail
+    - GET https://api.payerset.com/v1/metadata/providers/npi_to_tin
+    - GET https://api.payerset.com/v1/metadata/providers/tin_to_npi
+    - GET https://api.payerset.com/v1/metadata/providers/npi_to_parent
+    - GET https://api.payerset.com/v1/metadata/providers/npi_parent
+    - GET https://api.payerset.com/v1/metadata/billing_codes/code_detail
+    - GET https://api.payerset.com/v1/metadata/billing_codes/code_types
+    - GET https://api.payerset.com/v1/hospital_mrf/hospital_list
+    - GET https://api.payerset.com/v1/hospital_mrf/system_list
+    - GET https://api.payerset.com/v1/hospital_mrf/payer_list
+sources:
+  - url: https://github.com/payerset/api-docs
+    type: APIReference
+    note: Payerset API documentation repo; base URL https://api.payerset.com/v1/ and x-api-key auth. All endpoints are HTTPS REST.
+  - url: https://content.payerset.com/payerset-api-postman-spec
+    type: OpenAPI
+    note: Published OpenAPI 3.0.1 definition (api-datalake) listing all GET endpoints, schemas, the x-api-key security scheme, and an Amazon API Gateway policy. No streaming or WebSocket surface.
+  - url: https://docs.payerset.com
+    type: Documentation
+    note: Resource center and data dictionaries; describes Data Lake delivery via REST API, S3, and Snowflake Marketplace. No WebSocket mentioned.
+  - url: https://payerset.com/datalake/
+    type: Documentation
+    note: Data Lake product page; delivery channels are REST API, cloud storage (S3), and Snowflake Marketplace - all non-WebSocket.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket or event-driven protocol surface exists. Payerset's only
+    documented programmatic interface is a synchronous REST API over HTTPS,
+    so no AsyncAPI document was authored. Continuous/bulk delivery is handled
+    by S3 cloud shares and Snowflake Marketplace, which are batch data-share
+    mechanisms rather than streaming APIs.
