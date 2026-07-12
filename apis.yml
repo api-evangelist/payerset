@@ -109,6 +109,10 @@ apis:
     Surfaced through the Rate Explorer platform and Data Lake; no dedicated public
     benchmark API endpoint is documented in the published API definition.
 common:
+- type: DomainSecurity
+  url: security/payerset-domain-security.yml
+- type: Authentication
+  url: authentication/payerset-authentication.yml
 - type: GitHubOrganization
   url: https://github.com/payerset
 - type: LinkedIn
@@ -123,6 +127,8 @@ common:
   url: rate-limits/payerset-rate-limits.yml
 - type: FinOps
   url: finops/payerset-finops.yml
+- url: https://www.payerset.com/insights/
+  type: Blog
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
