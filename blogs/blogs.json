@@ -1,0 +1,14 @@
+{
+  "repo": "payerset",
+  "feeds": [
+    {
+      "source": "https://www.payerset.com/insights/",
+      "feed_url": "https://www.payerset.com/insights/",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    }
+  ],
+  "fetched": "2026-07-11T11:50:51Z",
+  "post_count": 23
+}
