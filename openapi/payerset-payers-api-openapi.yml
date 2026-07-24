@@ -1,0 +1,90 @@
+openapi: 3.0.1
+info:
+  title: Payerset Data Lake Billing Codes Payers API
+  description: The Payerset Data Lake API provides programmatic access to U.S. healthcare price transparency data parsed from payer Transparency in Coverage (TiC) machine-readable files and hospital price transparency MRFs, enriched with provider, payer, and billing-code reference metadata. Endpoints support payer/provider negotiated rate lookups, NPI and TIN provider mapping, billing-code classification, and hospital MRF discovery. Authentication is via an API key supplied in the x-api-key header.
+  contact:
+    name: Payerset Support
+    email: support@payerset.com
+    url: https://www.payerset.com
+  version: '2024-10-31'
+servers:
+- url: https://api.payerset.com
+  description: Payerset Data Lake production API
+security:
+- api_key: []
+tags:
+- name: Payers
+  description: Payer reference metadata and payer listings.
+paths:
+  /v1/metadata/payers/payer_detail:
+    get:
+      operationId: getPayerDetail
+      tags:
+      - Payers
+      summary: Get payer detail
+      description: Returns descriptive metadata for payers, including region, category, friendly name, and system name.
+      responses:
+        '200':
+          description: 200 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/payerDetail'
+      security:
+      - api_key: []
+  /v1/metadata/payers/payer_list:
+    get:
+      operationId: getPayerList
+      tags:
+      - Payers
+      summary: Get payer list
+      description: Returns the list of payer system names available in the Data Lake.
+      responses:
+        '200':
+          description: 200 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/payerList'
+      security:
+      - api_key: []
+components:
+  schemas:
+    payerList:
+      required:
+      - payers
+      type: object
+      properties:
+        payers:
+          type: array
+          items:
+            type: string
+    payerDetail:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              payer_region:
+                type: string
+              payer_category:
+                type: string
+              payer_friendly_name:
+                type: string
+              payer_system_name:
+                type: string
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: x-api-key
+      in: header

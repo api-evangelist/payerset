@@ -1,0 +1,157 @@
+openapi: 3.0.1
+info:
+  title: Payerset Data Lake Billing Codes Hospital MRF API
+  description: The Payerset Data Lake API provides programmatic access to U.S. healthcare price transparency data parsed from payer Transparency in Coverage (TiC) machine-readable files and hospital price transparency MRFs, enriched with provider, payer, and billing-code reference metadata. Endpoints support payer/provider negotiated rate lookups, NPI and TIN provider mapping, billing-code classification, and hospital MRF discovery. Authentication is via an API key supplied in the x-api-key header.
+  contact:
+    name: Payerset Support
+    email: support@payerset.com
+    url: https://www.payerset.com
+  version: '2024-10-31'
+servers:
+- url: https://api.payerset.com
+  description: Payerset Data Lake production API
+security:
+- api_key: []
+tags:
+- name: Hospital MRF
+  description: Hospital price transparency machine-readable file discovery (hospitals, systems, payers).
+paths:
+  /v1/hospital_mrf/hospital_list:
+    get:
+      operationId: getHospitalList
+      tags:
+      - Hospital MRF
+      summary: Get hospital list
+      description: Returns the list of hospitals with published price transparency machine-readable files.
+      responses:
+        '200':
+          description: 200 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/hospitalList'
+      security:
+      - api_key: []
+  /v1/hospital_mrf/system_list:
+    get:
+      operationId: getSystemList
+      tags:
+      - Hospital MRF
+      summary: Get system list
+      description: Returns the list of hospital systems represented in the hospital MRF dataset.
+      responses:
+        '200':
+          description: 200 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/systemList'
+      security:
+      - api_key: []
+  /v1/hospital_mrf/payer_list:
+    get:
+      operationId: getHospitalPayerList
+      tags:
+      - Hospital MRF
+      summary: Get hospital payer list
+      description: Returns the list of payers present in the hospital price transparency MRF dataset.
+      responses:
+        '200':
+          description: 200 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/hospitalPayerList'
+      security:
+      - api_key: []
+components:
+  schemas:
+    systemList:
+      required:
+      - Count
+      - Items
+      type: object
+      properties:
+        Count:
+          type: integer
+        Items:
+          type: array
+          items:
+            required:
+            - state
+            - system_id
+            - system_name
+            type: object
+            properties:
+              system_id:
+                type: string
+              system_name:
+                type: string
+              state:
+                type: string
+    hospitalPayerList:
+      required:
+      - Count
+      - Items
+      type: object
+      properties:
+        Count:
+          type: integer
+        Items:
+          type: array
+          items:
+            required:
+            - payer_id
+            - payer_name
+            - payer_type
+            - state
+            type: object
+            properties:
+              payer_id:
+                type: string
+              payer_name:
+                type: string
+              payer_type:
+                type: string
+              state:
+                type: string
+    hospitalList:
+      required:
+      - Count
+      - Items
+      type: object
+      properties:
+        Count:
+          type: integer
+        Items:
+          type: array
+          items:
+            required:
+            - hospital_id
+            - hospital_name
+            - system_name
+            type: object
+            properties:
+              system_name:
+                type: string
+              hospital_id:
+                type: string
+              hospital_name:
+                type: string
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: x-api-key
+      in: header

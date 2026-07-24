@@ -1,0 +1,93 @@
+openapi: 3.0.1
+info:
+  title: Payerset Data Lake Billing Codes API
+  description: The Payerset Data Lake API provides programmatic access to U.S. healthcare price transparency data parsed from payer Transparency in Coverage (TiC) machine-readable files and hospital price transparency MRFs, enriched with provider, payer, and billing-code reference metadata. Endpoints support payer/provider negotiated rate lookups, NPI and TIN provider mapping, billing-code classification, and hospital MRF discovery. Authentication is via an API key supplied in the x-api-key header.
+  contact:
+    name: Payerset Support
+    email: support@payerset.com
+    url: https://www.payerset.com
+  version: '2024-10-31'
+servers:
+- url: https://api.payerset.com
+  description: Payerset Data Lake production API
+security:
+- api_key: []
+tags:
+- name: Billing Codes
+  description: Billing code classification, categorization, and code type reference data.
+paths:
+  /v1/metadata/billing_codes/code_detail:
+    get:
+      operationId: getBillingCodeDetail
+      tags:
+      - Billing Codes
+      summary: Get billing code detail
+      description: Returns metadata for a specific billing code, including code type, name, category, and subcategory classification.
+      parameters:
+      - name: billing_code
+        in: query
+        required: true
+        description: Billing code to look up (e.g., "99213").
+        schema:
+          type: string
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/billingCode'
+      security:
+      - api_key: []
+  /v1/metadata/billing_codes/code_types:
+    get:
+      operationId: getBillingCodeTypes
+      tags:
+      - Billing Codes
+      summary: Get billing code types
+      description: Returns the list of supported billing code types (e.g., CPT, HCPCS, MS-DRG).
+      responses:
+        '200':
+          description: 200 response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/codeType'
+components:
+  schemas:
+    billingCode:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              billing_code:
+                type: string
+              name:
+                type: string
+              code_type:
+                type: string
+              category:
+                type: string
+              subcategory:
+                type: string
+    codeType:
+      required:
+      - code_types
+      type: object
+      properties:
+        code_types:
+          type: array
+          items:
+            type: string
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: x-api-key
+      in: header
