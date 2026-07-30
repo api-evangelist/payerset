@@ -9,7 +9,20 @@ description: Payerset is a healthcare price transparency data company that parse
   Lake API exposes payer-provider negotiated rate lookups, NPI/TIN provider
   mapping, billing-code classification, and hospital MRF discovery via a REST API
   authenticated with an x-api-key header.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: enterprise
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Enterprise · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/payerset.png
 tags:
 - Healthcare
 - Price Transparency
@@ -20,94 +33,118 @@ created: '2026-06-21'
 modified: '2026-06-21'
 specificationVersion: '0.19'
 apis:
-- aid: payerset:negotiated-rates
-  name: Payerset Negotiated Rates
-  tags:
-  - Negotiated Rates
-  - Rates
-  - Transparency in Coverage
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+- aid: payerset:payerset-billing-codes-api
+  name: Payerset Billing Codes API
+  description: Billing code classification, categorization, and code type reference data.
   humanURL: https://docs.payerset.com/data-lake/data-dictionary/payer-transparency-tic
   baseURL: https://api.payerset.com
-  properties:
-  - url: https://docs.payerset.com/data-lake/data-dictionary/payer-transparency-tic
-    type: Documentation
-  - url: openapi/payerset-openapi.yml
-    type: OpenAPI
-  - url: collections/payerset.postman_collection.json
-    type: PostmanCollection
-  - url: collections/payerset.opencollection.json
-    type: OpenCollection
-  description: Returns the payer-provider negotiated rate for a given billing code,
-    payer, and provider NPI, derived from payer Transparency in Coverage
-    machine-readable files (GET /v1/rates/rate_query).
-- aid: payerset:rate-search
-  name: Payerset Rate Search
   tags:
-  - Rate Search
-  - Providers
-  - Payers
   - Billing Codes
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.payerset.com
-  baseURL: https://api.payerset.com
   properties:
-  - url: https://docs.payerset.com
-    type: Documentation
-  - url: openapi/payerset-openapi.yml
-    type: OpenAPI
-  - url: collections/payerset.postman_collection.json
-    type: PostmanCollection
-  - url: collections/payerset.opencollection.json
-    type: OpenCollection
-  description: Reference-data search endpoints used to resolve a rate query - payer
-    listings and detail, provider NPI detail, NPI/TIN/parent mappings, and
-    billing-code detail and code types across the Data Lake.
-- aid: payerset:datasets
-  name: Payerset Datasets
+  - type: OpenAPI
+    url: openapi/payerset-billing-codes-api-openapi.yml
+  - type: Documentation
+    url: https://docs.payerset.com/data-lake/data-dictionary/payer-transparency-tic
+  - type: PostmanCollection
+    url: collections/payerset.postman_collection.json
+  - type: OpenCollection
+    url: collections/payerset.opencollection.json
+  - type: Documentation
+    url: https://docs.payerset.com
+  - type: Documentation
+    url: https://payerset.com/datalake/
+  - type: Documentation
+    url: https://payerset.com/rateexplorer/
+- aid: payerset:payerset-hospital-mrf-api
+  name: Payerset Hospital MRF API
+  description: >-
+    Hospital price transparency machine-readable file discovery (hospitals, systems, payers).
+  humanURL: https://docs.payerset.com/data-lake/data-dictionary/payer-transparency-tic
+  baseURL: https://api.payerset.com
   tags:
-  - Datasets
-  - Data Lake
   - Hospital MRF
-  - Mappings
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://payerset.com/datalake/
-  baseURL: https://api.payerset.com
   properties:
-  - url: https://payerset.com/datalake/
-    type: Documentation
-  - url: openapi/payerset-openapi.yml
-    type: OpenAPI
-  - url: collections/payerset.postman_collection.json
-    type: PostmanCollection
-  - url: collections/payerset.opencollection.json
-    type: OpenCollection
-  description: Dataset discovery and reference endpoints powering the Payerset Data
-    Lake - hospital MRF hospital, system, and payer lists, plus provider EIN/TIN/NPI
-    mapping and billing-code classification datasets, also delivered via S3 and
-    Snowflake Marketplace.
-- aid: payerset:benchmarks
-  name: Payerset Benchmarks
+  - type: OpenAPI
+    url: openapi/payerset-hospital-mrf-api-openapi.yml
+  - type: Documentation
+    url: https://docs.payerset.com/data-lake/data-dictionary/payer-transparency-tic
+  - type: PostmanCollection
+    url: collections/payerset.postman_collection.json
+  - type: OpenCollection
+    url: collections/payerset.opencollection.json
+  - type: Documentation
+    url: https://docs.payerset.com
+  - type: Documentation
+    url: https://payerset.com/datalake/
+  - type: Documentation
+    url: https://payerset.com/rateexplorer/
+- aid: payerset:payerset-payers-api
+  name: Payerset Payers API
+  description: Payer reference metadata and payer listings.
+  humanURL: https://docs.payerset.com/data-lake/data-dictionary/payer-transparency-tic
+  baseURL: https://api.payerset.com
   tags:
-  - Benchmarks
-  - Reimbursement
-  - Market Analysis
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://payerset.com/rateexplorer/
-  baseURL: https://api.payerset.com
+  - Payers
   properties:
-  - url: https://payerset.com/rateexplorer/
-    type: Documentation
-  - url: openapi/payerset-openapi.yml
-    type: OpenAPI
-  - url: collections/payerset.postman_collection.json
-    type: PostmanCollection
-  - url: collections/payerset.opencollection.json
-    type: OpenCollection
-  description: Reimbursement benchmarking built on Payerset negotiated-rate data,
-    comparing payer-provider rates across payers, providers, and billing codes.
-    Surfaced through the Rate Explorer platform and Data Lake; no dedicated public
-    benchmark API endpoint is documented in the published API definition.
+  - type: OpenAPI
+    url: openapi/payerset-payers-api-openapi.yml
+  - type: Documentation
+    url: https://docs.payerset.com/data-lake/data-dictionary/payer-transparency-tic
+  - type: PostmanCollection
+    url: collections/payerset.postman_collection.json
+  - type: OpenCollection
+    url: collections/payerset.opencollection.json
+  - type: Documentation
+    url: https://docs.payerset.com
+  - type: Documentation
+    url: https://payerset.com/datalake/
+  - type: Documentation
+    url: https://payerset.com/rateexplorer/
+- aid: payerset:payerset-providers-api
+  name: Payerset Providers API
+  description: >-
+    Provider (NPI), organization, and tax identification (TIN) reference metadata and mappings.
+  humanURL: https://docs.payerset.com/data-lake/data-dictionary/payer-transparency-tic
+  baseURL: https://api.payerset.com
+  tags:
+  - Providers
+  properties:
+  - type: OpenAPI
+    url: openapi/payerset-providers-api-openapi.yml
+  - type: Documentation
+    url: https://docs.payerset.com/data-lake/data-dictionary/payer-transparency-tic
+  - type: PostmanCollection
+    url: collections/payerset.postman_collection.json
+  - type: OpenCollection
+    url: collections/payerset.opencollection.json
+  - type: Documentation
+    url: https://docs.payerset.com
+  - type: Documentation
+    url: https://payerset.com/datalake/
+  - type: Documentation
+    url: https://payerset.com/rateexplorer/
+- aid: payerset:payerset-rates-api
+  name: Payerset Rates API
+  description: Payer-provider negotiated rate lookups from Transparency in Coverage MRFs.
+  humanURL: https://docs.payerset.com/data-lake/data-dictionary/payer-transparency-tic
+  baseURL: https://api.payerset.com
+  tags:
+  - Rates
+  properties:
+  - type: OpenAPI
+    url: openapi/payerset-rates-api-openapi.yml
+  - type: Documentation
+    url: https://docs.payerset.com/data-lake/data-dictionary/payer-transparency-tic
+  - type: PostmanCollection
+    url: collections/payerset.postman_collection.json
+  - type: OpenCollection
+    url: collections/payerset.opencollection.json
+  - type: Documentation
+    url: https://docs.payerset.com
+  - type: Documentation
+    url: https://payerset.com/datalake/
+  - type: Documentation
+    url: https://payerset.com/rateexplorer/
 common:
 - type: AgenticAccess
   url: agentic-access/payerset-agentic-access.yml
