@@ -1,0 +1,22 @@
+{
+  "provider": "payerset",
+  "sources": [
+    "payerset-billing-codes-api-openapi.yml",
+    "payerset-hospital-mrf-api-openapi.yml",
+    "payerset-payers-api-openapi.yml",
+    "payerset-providers-api-openapi.yml",
+    "payerset-rates-api-openapi.yml"
+  ],
+  "outputs": [
+    "payerset-billing-codes-api-openapi.yml",
+    "payerset-hospital-mrf-api-openapi.yml",
+    "payerset-payers-api-openapi.yml",
+    "payerset-providers-api-openapi.yml",
+    "payerset-rates-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
