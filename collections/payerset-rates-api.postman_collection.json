@@ -1,0 +1,185 @@
+{
+  "item": [
+    {
+      "id": "13191de5-68f7-4d9b-a2e7-e0f47285e256",
+      "name": "Rates",
+      "description": {
+        "content": "Payer-provider negotiated rate lookups from Transparency in Coverage MRFs.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cc237b9b-a633-40ca-875a-400595b50da1",
+          "name": "Query negotiated rate",
+          "request": {
+            "name": "Query negotiated rate",
+            "description": {
+              "content": "Returns the negotiated rate(s) for a given combination of billing code, payer, and provider NPI, derived from payer Transparency in Coverage machine-readable files.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "rates",
+                "rate_query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "billing_code",
+                  "value": "<string>",
+                  "description": "(Required) Service billing code (e.g., CPT/HCPCS/MS-DRG such as \"27447\")."
+                },
+                {
+                  "disabled": false,
+                  "key": "payer",
+                  "value": "<string>",
+                  "description": "(Required) Payer system name (e.g., \"Aetna\")."
+                },
+                {
+                  "disabled": false,
+                  "key": "npi",
+                  "value": "<string>",
+                  "description": "(Required) National Provider Identifier of the provider."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4d6a8918-bdbb-4541-ac22-ddcfd60c1869",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "rates",
+                    "rate_query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "billing_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "payer",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "npi",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": 3452,\n  \"key_1\": 3870.8917968628098\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.payerset.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3a1e2314-1deb-4e8e-891a-be13297472cb",
+    "name": "Payerset Data Lake Billing Codes Rates API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Payerset Data Lake API provides programmatic access to U.S. healthcare price transparency data parsed from payer Transparency in Coverage (TiC) machine-readable files and hospital price transparency MRFs, enriched with provider, payer, and billing-code reference metadata. Endpoints support payer/provider negotiated rate lookups, NPI and TIN provider mapping, billing-code classification, and hospital MRF discovery. Authentication is via an API key supplied in the x-api-key header.\n\nContact Support:\n Name: Payerset Support\n Email: support@payerset.com",
+      "type": "text/plain"
+    }
+  }
+}

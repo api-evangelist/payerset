@@ -1,0 +1,77 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Payerset Data Lake Billing Codes Hospital MRF API",
+    "version": "2024-10-31"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Hospital MRF",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get hospital list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.payerset.com/v1/hospital_mrf/hospital_list",
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns the list of hospitals with published price transparency machine-readable files."
+        },
+        {
+          "info": {
+            "name": "Get system list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.payerset.com/v1/hospital_mrf/system_list",
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns the list of hospital systems represented in the hospital MRF dataset."
+        },
+        {
+          "info": {
+            "name": "Get hospital payer list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.payerset.com/v1/hospital_mrf/payer_list",
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns the list of payers present in the hospital price transparency MRF dataset."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

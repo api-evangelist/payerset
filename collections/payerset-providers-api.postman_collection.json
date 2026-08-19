@@ -1,0 +1,591 @@
+{
+  "item": [
+    {
+      "id": "502ea788-6240-4dce-8c79-270f2a7f68f7",
+      "name": "Providers",
+      "description": {
+        "content": "Provider (NPI), organization, and tax identification (TIN) reference metadata and mappings.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "854d6495-cef8-4cd0-a992-3391d6fe1e72",
+          "name": "Get NPI detail",
+          "request": {
+            "name": "Get NPI detail",
+            "description": {
+              "content": "Returns enriched provider metadata for a given NPI, including NPPES organization details, location, taxonomy classification, EIN, and Medicare enrollment information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "metadata",
+                "providers",
+                "npi_detail"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "npi",
+                  "value": "<string>",
+                  "description": "(Required) National Provider Identifier (e.g., \"1234567890\")."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "103f2d33-9510-4737-9fa0-0504ee7e9e33",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "metadata",
+                    "providers",
+                    "npi_detail"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "npi",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"npi\": \"string\",\n      \"taxonomygrouping\": \"string\",\n      \"taxonomyclassification\": \"string\",\n      \"taxonomyspecialization\": \"string\",\n      \"taxonomydisplayname\": \"string\",\n      \"organizationname\": \"string\",\n      \"state\": \"string\",\n      \"city\": \"string\",\n      \"zip\": \"string\",\n      \"primarytaxonomycode\": \"string\",\n      \"orgfriendlyname\": \"string\",\n      \"county\": \"string\",\n      \"ein\": \"string\",\n      \"latitude\": \"string\",\n      \"longitude\": \"string\",\n      \"medicare_enrollment_id\": \"string\",\n      \"medicare_enrollment_specialty\": \"string\"\n    },\n    {\n      \"npi\": \"string\",\n      \"taxonomygrouping\": \"string\",\n      \"taxonomyclassification\": \"string\",\n      \"taxonomyspecialization\": \"string\",\n      \"taxonomydisplayname\": \"string\",\n      \"organizationname\": \"string\",\n      \"state\": \"string\",\n      \"city\": \"string\",\n      \"zip\": \"string\",\n      \"primarytaxonomycode\": \"string\",\n      \"orgfriendlyname\": \"string\",\n      \"county\": \"string\",\n      \"ein\": \"string\",\n      \"latitude\": \"string\",\n      \"longitude\": \"string\",\n      \"medicare_enrollment_id\": \"string\",\n      \"medicare_enrollment_specialty\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "182bfd62-911f-48f5-a1f3-fe2b60bcfda5",
+          "name": "Get NPI to TIN mapping",
+          "request": {
+            "name": "Get NPI to TIN mapping",
+            "description": {
+              "content": "Returns the tax identification number(s) (TIN) associated with provider NPIs.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "metadata",
+                "providers",
+                "npi_to_tin"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8f556750-9515-41c9-92c3-72aba07f05d3",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "metadata",
+                    "providers",
+                    "npi_to_tin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"npi\": \"string\",\n      \"tin_value\": \"string\"\n    },\n    {\n      \"npi\": \"string\",\n      \"tin_value\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1c1c6cb2-8017-4b90-92c1-23c0dc6cfa99",
+          "name": "Get TIN to NPI mapping",
+          "request": {
+            "name": "Get TIN to NPI mapping",
+            "description": {
+              "content": "Returns the provider NPI(s) associated with a given tax identification number (TIN).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "metadata",
+                "providers",
+                "tin_to_npi"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "71ceb978-2746-421e-870c-7446de81223f",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "metadata",
+                    "providers",
+                    "tin_to_npi"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": \"string\",\n  \"items\": [\n    {\n      \"npi\": \"string\",\n      \"tin_value\": \"string\"\n    },\n    {\n      \"npi\": \"string\",\n      \"tin_value\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d6d04d02-7b51-41ba-8250-c11e0e5dd423",
+          "name": "Get NPI to parent mapping",
+          "request": {
+            "name": "Get NPI to parent mapping",
+            "description": {
+              "content": "Returns the parent organization NPI and TIN associated with provider NPIs.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "metadata",
+                "providers",
+                "npi_to_parent"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0057406d-b619-4452-b639-ff2bfc5e05d5",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "metadata",
+                    "providers",
+                    "npi_to_parent"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"npi\": \"string\",\n      \"npi_parent\": \"string\",\n      \"tin_value\": \"string\"\n    },\n    {\n      \"npi\": \"string\",\n      \"npi_parent\": \"string\",\n      \"tin_value\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "68bc3420-64b8-458b-96bf-e6fde04ed940",
+          "name": "Get NPI parent",
+          "request": {
+            "name": "Get NPI parent",
+            "description": {
+              "content": "Returns parent organization NPI relationships for providers.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "metadata",
+                "providers",
+                "npi_parent"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4322e013-5e52-4821-9f4c-1fa266a7de6d",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "metadata",
+                    "providers",
+                    "npi_parent"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": \"string\",\n  \"items\": [\n    {\n      \"npi_parent\": \"string\",\n      \"npi\": \"string\"\n    },\n    {\n      \"npi_parent\": \"string\",\n      \"npi\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.payerset.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b4cfa00e-6052-40a1-a7e2-76e991b9d61c",
+    "name": "Payerset Data Lake Billing Codes Providers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Payerset Data Lake API provides programmatic access to U.S. healthcare price transparency data parsed from payer Transparency in Coverage (TiC) machine-readable files and hospital price transparency MRFs, enriched with provider, payer, and billing-code reference metadata. Endpoints support payer/provider negotiated rate lookups, NPI and TIN provider mapping, billing-code classification, and hospital MRF discovery. Authentication is via an API key supplied in the x-api-key header.\n\nContact Support:\n Name: Payerset Support\n Email: support@payerset.com",
+      "type": "text/plain"
+    }
+  }
+}

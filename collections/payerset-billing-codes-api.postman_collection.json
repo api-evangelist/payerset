@@ -1,0 +1,251 @@
+{
+  "item": [
+    {
+      "id": "1b66bcaf-b7ac-4983-ae92-5cdb7194203a",
+      "name": "Billing Codes",
+      "description": {
+        "content": "Billing code classification, categorization, and code type reference data.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d10ce2d0-e4a6-417f-8358-204092eb7e83",
+          "name": "Get billing code detail",
+          "request": {
+            "name": "Get billing code detail",
+            "description": {
+              "content": "Returns metadata for a specific billing code, including code type, name, category, and subcategory classification.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "metadata",
+                "billing_codes",
+                "code_detail"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "billing_code",
+                  "value": "<string>",
+                  "description": "(Required) Billing code to look up (e.g., \"99213\")."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ece08660-564a-4678-a02e-e717a8ba0fb5",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "metadata",
+                    "billing_codes",
+                    "code_detail"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "billing_code",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"billing_code\": \"string\",\n      \"name\": \"string\",\n      \"code_type\": \"string\",\n      \"category\": \"string\",\n      \"subcategory\": \"string\"\n    },\n    {\n      \"billing_code\": \"string\",\n      \"name\": \"string\",\n      \"code_type\": \"string\",\n      \"category\": \"string\",\n      \"subcategory\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7fa86199-f33b-4f0c-8a6d-91e51ecbe20e",
+          "name": "Get billing code types",
+          "request": {
+            "name": "Get billing code types",
+            "description": {
+              "content": "Returns the list of supported billing code types (e.g., CPT, HCPCS, MS-DRG).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "metadata",
+                "billing_codes",
+                "code_types"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8e6f296d-d540-4f78-b427-a8a87c6e3768",
+              "name": "200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "metadata",
+                    "billing_codes",
+                    "code_types"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code_types\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.payerset.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "737a00cd-0505-43aa-9575-9112d8ea385a",
+    "name": "Payerset Data Lake Billing Codes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Payerset Data Lake API provides programmatic access to U.S. healthcare price transparency data parsed from payer Transparency in Coverage (TiC) machine-readable files and hospital price transparency MRFs, enriched with provider, payer, and billing-code reference metadata. Endpoints support payer/provider negotiated rate lookups, NPI and TIN provider mapping, billing-code classification, and hospital MRF discovery. Authentication is via an API key supplied in the x-api-key header.\n\nContact Support:\n Name: Payerset Support\n Email: support@payerset.com",
+      "type": "text/plain"
+    }
+  }
+}

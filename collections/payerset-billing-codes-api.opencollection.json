@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Payerset Data Lake Billing Codes API",
+    "version": "2024-10-31"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Billing Codes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get billing code detail",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.payerset.com/v1/metadata/billing_codes/code_detail",
+            "params": [
+              {
+                "name": "billing_code",
+                "value": "",
+                "type": "query",
+                "description": "Billing code to look up (e.g., \"99213\")."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns metadata for a specific billing code, including code type, name, category, and subcategory classification."
+        },
+        {
+          "info": {
+            "name": "Get billing code types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.payerset.com/v1/metadata/billing_codes/code_types"
+          },
+          "docs": "Returns the list of supported billing code types (e.g., CPT, HCPCS, MS-DRG)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
