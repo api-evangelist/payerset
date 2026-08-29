@@ -9,6 +9,18 @@ description: Payerset is a healthcare price transparency data company that parse
   Lake API exposes payer-provider negotiated rate lookups, NPI/TIN provider
   mapping, billing-code classification, and hospital MRF discovery via a REST API
   authenticated with an x-api-key header.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: enterprise
   onboarding: self-serve
