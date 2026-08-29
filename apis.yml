@@ -158,6 +158,9 @@ apis:
   - type: Documentation
     url: https://payerset.com/rateexplorer/
 common:
+- type: CapabilityMap
+  url: capabilities/payerset-capability-edges.yml
+  name: Payerset Business Capability Map
 - type: AgenticAccess
   url: agentic-access/payerset-agentic-access.yml
 - type: DomainSecurity
