@@ -58,6 +58,15 @@ paths:
       - api_key: []
 components:
   schemas:
+    payerList:
+      required:
+      - payers
+      type: object
+      properties:
+        payers:
+          type: array
+          items:
+            type: string
     payerDetail:
       type: object
       properties:
@@ -74,15 +83,6 @@ components:
                 type: string
               payer_system_name:
                 type: string
-    payerList:
-      required:
-      - payers
-      type: object
-      properties:
-        payers:
-          type: array
-          items:
-            type: string
   securitySchemes:
     api_key:
       type: apiKey

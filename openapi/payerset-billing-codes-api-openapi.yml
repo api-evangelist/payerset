@@ -59,15 +59,6 @@ paths:
                 $ref: '#/components/schemas/codeType'
 components:
   schemas:
-    codeType:
-      required:
-      - code_types
-      type: object
-      properties:
-        code_types:
-          type: array
-          items:
-            type: string
     billingCode:
       type: object
       properties:
@@ -86,6 +77,15 @@ components:
                 type: string
               subcategory:
                 type: string
+    codeType:
+      required:
+      - code_types
+      type: object
+      properties:
+        code_types:
+          type: array
+          items:
+            type: string
   securitySchemes:
     api_key:
       type: apiKey

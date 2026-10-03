@@ -125,6 +125,32 @@ paths:
       - api_key: []
 components:
   schemas:
+    npiToTin:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              npi:
+                type: string
+              tin_value:
+                type: string
+    npiToParent:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              npi:
+                type: string
+              npi_parent:
+                type: string
+              tin_value:
+                type: string
     tinToNpi:
       type: object
       properties:
@@ -138,6 +164,20 @@ components:
               npi:
                 type: string
               tin_value:
+                type: string
+    npiParent:
+      type: object
+      properties:
+        count:
+          type: string
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              npi_parent:
+                type: string
+              npi:
                 type: string
     npiDetail:
       type: object
@@ -180,46 +220,6 @@ components:
               medicare_enrollment_id:
                 type: string
               medicare_enrollment_specialty:
-                type: string
-    npiParent:
-      type: object
-      properties:
-        count:
-          type: string
-        items:
-          type: array
-          items:
-            type: object
-            properties:
-              npi_parent:
-                type: string
-              npi:
-                type: string
-    npiToTin:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            type: object
-            properties:
-              npi:
-                type: string
-              tin_value:
-                type: string
-    npiToParent:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            type: object
-            properties:
-              npi:
-                type: string
-              npi_parent:
-                type: string
-              tin_value:
                 type: string
   securitySchemes:
     api_key:
