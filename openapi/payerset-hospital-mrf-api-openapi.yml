@@ -78,29 +78,6 @@ paths:
       - api_key: []
 components:
   schemas:
-    systemList:
-      required:
-      - Count
-      - Items
-      type: object
-      properties:
-        Count:
-          type: integer
-        Items:
-          type: array
-          items:
-            required:
-            - state
-            - system_id
-            - system_name
-            type: object
-            properties:
-              system_id:
-                type: string
-              system_name:
-                type: string
-              state:
-                type: string
     hospitalPayerList:
       required:
       - Count
@@ -124,6 +101,29 @@ components:
               payer_name:
                 type: string
               payer_type:
+                type: string
+              state:
+                type: string
+    systemList:
+      required:
+      - Count
+      - Items
+      type: object
+      properties:
+        Count:
+          type: integer
+        Items:
+          type: array
+          items:
+            required:
+            - state
+            - system_id
+            - system_name
+            type: object
+            properties:
+              system_id:
+                type: string
+              system_name:
                 type: string
               state:
                 type: string

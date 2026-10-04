@@ -125,6 +125,34 @@ paths:
       - api_key: []
 components:
   schemas:
+    npiParent:
+      type: object
+      properties:
+        count:
+          type: string
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              npi_parent:
+                type: string
+              npi:
+                type: string
+    tinToNpi:
+      type: object
+      properties:
+        count:
+          type: string
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              npi:
+                type: string
+              tin_value:
+                type: string
     npiToTin:
       type: object
       properties:
@@ -150,34 +178,6 @@ components:
               npi_parent:
                 type: string
               tin_value:
-                type: string
-    tinToNpi:
-      type: object
-      properties:
-        count:
-          type: string
-        items:
-          type: array
-          items:
-            type: object
-            properties:
-              npi:
-                type: string
-              tin_value:
-                type: string
-    npiParent:
-      type: object
-      properties:
-        count:
-          type: string
-        items:
-          type: array
-          items:
-            type: object
-            properties:
-              npi_parent:
-                type: string
-              npi:
                 type: string
     npiDetail:
       type: object
