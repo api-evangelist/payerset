@@ -1,0 +1,12 @@
+{
+ "url": "https://raw.githubusercontent.com/payerset/api-docs/HEAD/api-datalake-prod-oas30.json",
+ "requested_url": "https://raw.githubusercontent.com/payerset/api-docs/HEAD/api-datalake-prod-oas30.json",
+ "status": 200,
+ "content_type": "text/plain; charset=utf-8",
+ "bytes": 37794,
+ "sha256": "ccb6ac6e2e02671cc2ccfe0d5b5c210c41e4160760272af0a1b75855f550a155",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 1.0), but the bytes differ, so the archive is an earlier or reformatted copy."
+}
