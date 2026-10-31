@@ -1,4 +1,4 @@
-# Payerset (payerset)
+# Payerset
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,116 +66,132 @@
 
 Payerset is a healthcare price transparency data company that parses every payer Transparency in Coverage (TiC) machine-readable file and compliant hospital MRF each quarter, enriches negotiated rates with provider, payer, and claims metadata, and delivers it as analytics-ready datasets. The Payerset Data Lake API exposes payer-provider negotiated rate lookups, NPI/TIN provider mapping, billing-code classification, and hospital MRF discovery via a REST API authenticated with an x-api-key header.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/payerset/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/payerset/refs/heads/main/apis.yml)
+**Areas:** Healthcare · Price Transparency · Negotiated Rates · Machine-Readable Files · Payer Data
 
-## Tags
+## Payerset on APIs.io
 
-- Healthcare
-- Price Transparency
-- Negotiated Rates
-- Machine-Readable Files
-- Payer Data
+Everything profiled for Payerset is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/payerset/](https://apis.io/providers/payerset/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (5)
 
-- **Created:** 2026-06-21
-- **Modified:** 2026-06-21
+- [Payerset Billing Codes API](https://apis.io/apis/payerset/payerset-billing-codes-api/) — Billing code classification, categorization, and code type reference data.
+- [Payerset Hospital MRF API](https://apis.io/apis/payerset/payerset-hospital-mrf-api/) — Hospital price transparency machine-readable file discovery (hospitals, systems, payers).
+- [Payerset Payers API](https://apis.io/apis/payerset/payerset-payers-api/) — Payer reference metadata and payer listings.
+- [Payerset Providers API](https://apis.io/apis/payerset/payerset-providers-api/) — Provider (NPI), organization, and tax identification (TIN) reference metadata and mappings.
+- [Payerset Rates API](https://apis.io/apis/payerset/payerset-rates-api/) — Payer-provider negotiated rate lookups from Transparency in Coverage MRFs.
 
-## APIs
+### Published properties
 
-### Payerset Negotiated Rates
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-Returns the payer-provider negotiated rate for a given billing code, payer, and provider NPI, derived from payer Transparency in Coverage machine-readable files (GET /v1/rates/rate_query).
+#### MCP servers (1)
 
-- **Human URL:** [https://docs.payerset.com/data-lake/data-dictionary/payer-transparency-tic](https://docs.payerset.com/data-lake/data-dictionary/payer-transparency-tic)
-- **Base URL:** `https://api.payerset.com`
+Model Context Protocol servers that expose the API to agents.
 
-#### Tags
+- [payerset](https://apis.io/servers/payerset/payerset/)
 
-- Negotiated Rates
-- Rates
-- Transparency in Coverage
+#### Agentic access (1)
 
-#### Properties
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- [Documentation](https://docs.payerset.com/data-lake/data-dictionary/payer-transparency-tic)
-- [OpenAPI](openapi/payerset-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/payerset.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/payerset.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Payerset Agentic Access](https://apis.io/agentic-access/payerset/payerset-agentic-access/)
 
-### Payerset Rate Search
+#### Collections (6)
 
-Reference-data search endpoints used to resolve a rate query - payer listings and detail, provider NPI detail, NPI/TIN/parent mappings, and billing-code detail and code types across the Data Lake.
+Postman and Open Collection request collections.
 
-- **Human URL:** [https://docs.payerset.com](https://docs.payerset.com)
-- **Base URL:** `https://api.payerset.com`
+- [Payerset Data Lake API](https://apis.io/collections/payerset/open-payerset/)
+- [Payerset Data Lake Billing Codes API](https://apis.io/collections/payerset/open-payerset-billing-codes-api/)
+- [Payerset Data Lake Billing Codes Hospital MRF API](https://apis.io/collections/payerset/open-payerset-hospital-mrf-api/)
+- [Payerset Data Lake Billing Codes Payers API](https://apis.io/collections/payerset/open-payerset-payers-api/)
+- [Payerset Data Lake Billing Codes Providers API](https://apis.io/collections/payerset/open-payerset-providers-api/)
+- [Payerset Data Lake Billing Codes Rates API](https://apis.io/collections/payerset/open-payerset-rates-api/)
 
-#### Tags
+#### Security (2)
 
-- Rate Search
-- Providers
-- Payers
-- Billing Codes
+Authentication, trust centre, and vulnerability disclosure.
 
-#### Properties
+- [Payerset Authentication](https://apis.io/security/payerset/payerset-authentication/)
+- [Payerset Domain Security](https://apis.io/security/payerset/payerset-domain-security/)
 
-- [Documentation](https://docs.payerset.com)
-- [OpenAPI](openapi/payerset-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/payerset.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/payerset.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Plans and pricing (1)
 
-### Payerset Datasets
+Published plans, tiers and prices.
 
-Dataset discovery and reference endpoints powering the Payerset Data Lake - hospital MRF hospital, system, and payer lists, plus provider EIN/TIN/NPI mapping and billing-code classification datasets, also delivered via S3 and Snowflake Marketplace.
+- [Payerset Plans Pricing](https://apis.io/plans/payerset/payerset-plans-pricing/)
 
-- **Human URL:** [https://payerset.com/datalake/](https://payerset.com/datalake/)
-- **Base URL:** `https://api.payerset.com`
+#### Rate limits (1)
 
-#### Tags
+Published request limits.
 
-- Datasets
-- Data Lake
-- Hospital MRF
-- Mappings
+- [Payerset Rate Limits](https://apis.io/rate-limits/payerset/payerset-rate-limits/)
 
-#### Properties
+#### FinOps (1)
 
-- [Documentation](https://payerset.com/datalake/)
-- [OpenAPI](openapi/payerset-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/payerset.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/payerset.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+What the API costs to run, by operation.
 
-### Payerset Benchmarks
+- [Payerset Finops](https://apis.io/finops/payerset/payerset-finops/)
 
-Reimbursement benchmarking built on Payerset negotiated-rate data, comparing payer-provider rates across payers, providers, and billing codes. Surfaced through the Rate Explorer platform and Data Lake; no dedicated public benchmark API endpoint is documented in the published API definition.
+## Where to find this API
 
-- **Human URL:** [https://payerset.com/rateexplorer/](https://payerset.com/rateexplorer/)
-- **Base URL:** `https://api.payerset.com`
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-#### Tags
-
-- Benchmarks
-- Reimbursement
-- Market Analysis
-
-#### Properties
-
-- [Documentation](https://payerset.com/rateexplorer/)
-- [OpenAPI](openapi/payerset-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/payerset.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/payerset.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [GitHub Organization](https://github.com/payerset)
-- [LinkedIn](https://www.linkedin.com/company/payerset)
 - [Website](https://www.payerset.com)
 - [Documentation](https://docs.payerset.com)
-- [Plans](plans/payerset-plans-pricing.yml)
-- [Rate Limits](rate-limits/payerset-rate-limits.yml)
-- [Fin Ops](finops/payerset-finops.yml)
+- [Blog](https://www.payerset.com/insights/)
+- [GitHub](https://github.com/payerset)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 24.8** — emerging · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 68.3 |
+| Contract quality | 45.1 |
+| Contract governance | 0.0 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 25.0 |
+| Access clarity | 5.3 |
+
+**Agent readiness 48.7** — agent-ready (gated down from agent-native)
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | verified |
+| Auth Clarity | served (partial credit) |
+| Idempotency | na |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 9.4** — Health
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/payerset/](https://apis.io/providers/payerset/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Payerset: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/payerset/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
